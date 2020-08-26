@@ -58,6 +58,8 @@ var canvas2 = document.getElementById('canvas2');
 		ctx.fillText("500 X 300", leftDimx, leftDimy);
 		ctx.fillText("300 X 500", rightDimx, rightDimy);
 // draw piece
+
+	ctx.save()
   	ctx.translate(50, 50);
 
     ctx.beginPath();
@@ -68,11 +70,11 @@ var canvas2 = document.getElementById('canvas2');
     ctx.lineTo(0, 0);
     ctx.closePath();
     ctx.stroke();
-		console.log(ctx.getTransform());
-		console.log(ctx.);
-	// need to add here to reset the transform back to 0
+    
+    // need to add here to reset the transform back to 0
+    ctx.restore();
 			}
-			
+
 			
    }
    
