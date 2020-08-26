@@ -27,11 +27,11 @@ var p3y = "";
 var p4x = "";
 var p4y = "";
 var adj = "";
-console.log(p2xa.length)
+
 
 for (var i = 0; i < 6; i++) {
 
-	adj = i * 10
+	adj = "";
 	p2x = p2xa[i];
 	p2y = p2ya[i];
 	p3x = p3xa[i];
@@ -42,7 +42,8 @@ for (var i = 0; i < 6; i++) {
 	if (
 document.getElementById("canvas" + i).getContext) {
 		ctx = document.getElementById("canvas" + i).getContext('2d');
-	
+
+
 	/* 
 	
 var canvas2 = document.getElementById('canvas2');
@@ -67,14 +68,30 @@ var canvas2 = document.getElementById('canvas2');
     ctx.lineTo(0, 0);
     ctx.closePath();
     ctx.stroke();
-
+	
 			}
+			
+			
    }
+   
+
 } 
 
-function clear() {
+function cl() {
+
+var boxNumber = 2;
+var boxIndex = boxNumber - 1;
+var cgc ="";
+var c = "";
+c = document.getElementById("canvas" + boxIndex)
+cgc = document.getElementById("canvas" + boxIndex).getContext('2d');
+
+	cgc.clearRect(0, 0, c.width, c.height);
+	
+	//show button after clear to open form to enter data
 	
 }
+
 
 
 
