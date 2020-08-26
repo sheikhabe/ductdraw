@@ -68,7 +68,9 @@ var canvas2 = document.getElementById('canvas2');
     ctx.lineTo(0, 0);
     ctx.closePath();
     ctx.stroke();
-	
+		console.log(ctx.getTransform());
+		console.log(ctx.);
+	// need to add here to reset the transform back to 0
 			}
 			
 			
