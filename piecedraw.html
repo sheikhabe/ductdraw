@@ -3,7 +3,7 @@
 <html>
  <head>
   <meta charset="utf-8"/>
-  <script src="drawduct.js" type="application/javascript">
+  <script src="drawpiece.js" type="application/javascript">
  
   </script>
 
@@ -15,7 +15,7 @@
  
   <button type="button" onclick="cl()">Clear - button</button>
   
-	 	<button type="button" onclick="draw()">Drawduct</button></p>
+	 	<button type="button" onclick="drawPiece()">DrawPiece</button></p>
 		<!--
 		<table>
   <tr>
@@ -31,12 +31,53 @@
   </tr>
 </table>
 	 -->
+	 
+	 <!-- form to input piece data -->
+
+	 <form>
+		 
+	 <table>
+	<tr>
+		<td>
+			<label for="p2xa">p2xa:</label><br>
+				<input type="text" id="p2xa" name="p2xa"><br></td>
+		<td>
+		  <label for="p2ya">p2ya:</label><br>
+			  <input type="text" id="p2ya" name="p2ya"><br></td>
+	</tr>
+
+	<tr>
+		<td>
+		 <label for="p3xa">p3xa:</label><br>
+				<input type="text" id="p3xa" name="p3xa"><br></td>
+		<td>
+			<label for="p3ya">p3y:</label><br>
+				<input type="text" id="p3ya" name="p3ya"><br></td>
+	</tr>
+
+	<tr>
+		<td>
+			<label for="p4xa">p4xa:</label><br>
+				<input type="text" id="p4xa" name="p4xa"><br></td>
+		<td>
+			<label for="p4ya">p4ya:</label><br>
+				<input type="text" id="p4ya" name="p4ya"><br></td>
+</tr>
+		 </table>
+</form>
+
   <canvas id="canvas0" width="475" height="600" style="border:1px solid #000000;"></canvas>
-	<canvas id="canvas1" width="475" height="600" style="border:1px solid #000000;"></canvas>
+	
+	
+	<!-- store other canvas
+		
+		<canvas id="canvas1" width="475" height="600" style="border:1px solid #000000;"></canvas>
   <canvas id="canvas2" width="475" height="600" style="border:1px solid #000000;"></canvas>
   <canvas id="canvas3" width="475" height="600" style="border:1px solid #000000;"></canvas>
   <canvas id="canvas4" width="475" height="600" style="border:1px solid #000000;"></canvas>
 	  <canvas id="canvas5" width="475" height="600" style="border:1px solid #000000;"></canvas>
+		
+	-->
    </body>
 </html>
 
