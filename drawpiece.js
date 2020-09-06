@@ -94,18 +94,18 @@ document.getElementById("canvas" + i).getContext)
     ctx.stroke();
     
 // restore the canvas translate state to (0, 0)
-    ctx.restore();
+	ctx.restore();
+	
+// create PNG URL
+var canvas0URL = ctx.toDataURL();
+console.log(canvas0URL);
 			}
-
-			
    }
-   
-
 } 
 
 function cl() {
 
-var boxNumber = 2;
+var boxNumber = 1;
 var boxIndex = boxNumber - 1;
 var cgc ="";
 var c = "";
@@ -205,22 +205,6 @@ document.getElementById("canvas" + i).getContext)
    
 
 } 
-
-function cl() {
-
-var boxNumber = 2;
-var boxIndex = boxNumber - 1;
-var cgc ="";
-var c = "";
-c = document.getElementById("canvas" + boxIndex)
-cgc = document.getElementById("canvas" + boxIndex).getContext('2d');
-
-	cgc.clearRect(0, 0, c.width, c.height);
-	
-	//show button after clear to open form to enter data
-	
-	
-}
 */
 
 
