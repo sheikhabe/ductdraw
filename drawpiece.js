@@ -17,10 +17,11 @@ var end2Width = "600";
 var end2Height = "400";
 var length = "500";
 var offsetChoice = "";
-var offset1 = "100";
+var offset1 = "0";
+var offset = ["0","0","0","0"];
 var offset2 = "0";
-var offset3 = "";
-var offset4 = "";
+var offset3 = "0";
+var offset4 = "0";
 var setUpDown = "";
 var setUpDownDir = "";
 
