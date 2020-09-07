@@ -30,6 +30,26 @@
 <table>
 <tr>
 	<td>
+		<label for="jointType">Joint Type:</label><br>
+		<select id="jointType" name="jointType">
+		<option value="t">TDF</option>
+		<option value="t25">TDF-25mm</option>
+		<option value="s">Slide</option>
+	</td>
+	<td>
+		<label for="lag">Lag:</label><br>
+		<select id="lag" name="lag">
+		<option value="Nude">Nude</option>
+		<option value="25mm">25mm</option>
+		<option value="38mm">38mm</option>
+		<option value="50mm">50mm</option>
+		<option value="75mm">75mm</option>
+		<option value="100mm">100mm</option>
+		<option value="Rubber Foam">Rubber Foam</option>
+	</td>
+</tr>
+<tr>
+	<td>
 		<label for="end1Width">End 1 Width:</label><br>
 		<input type="number" id="end1Width" name="end1Width" value="500"><br>
 	</td>
@@ -53,18 +73,12 @@
 		<label for="length">Length:</label><br>
 		<input type= "number" id="length" name="length" value="500"><br>
 	</td>
-	<td>
-		<label for="jointType">Joint Type:</label><br>
-		<select id="jointType" name="jointType">
-		<option value="t">TDF</option>
-		<option value="t25">TDF-25mm</option>
-		<option value="s">Slide</option>
-	</td>
+	
 </tr>
 <tr>
 	<td>
-		<label for="offset">Offset</label><br>
-		<input type= "number" id="offset" name="offset"><br>
+		<label for="offset">Offset:</label><br>
+		<input type= "number" id="offset" name="offset" value="100"><br>
 	</td>
 	<td>
 		<label for="offsetPos">Offset Position:</label><br>
@@ -85,12 +99,12 @@
 <tr>
 	<td>
 		<label for="set">Set:</label><br>
-		<input type= "text" id="set" name="set"><br>
+		<input type= "number" id="set" name="set" value="50"><br>
 	</td>
 </tr>
 <tr>
 	<td>
-		<label for="setudtb">UpDownTopBottom:</label><br>
+		<label for="setudtb">UpDown TopBottom:</label><br>
 		<select id="setudtb" name="setudtb">
 		<option value="FOT">Flat on Top</option>
 		<option value="FOB">Flat on Bottom</option>
@@ -103,8 +117,8 @@
 	<td>
 		<label for="setDir">Direction:</label><br>
 		<select id="setDir" name="setDir">
-		<option value="left">———-></option>
-		<option value="right"><——--</option>
+		<option value="--->">---></option>
+		<option value="<---"><---</option>
 		</select><br>
 	</td>
 </tr>
@@ -119,7 +133,7 @@
 </table>
 </form>
 
-  <canvas id="canvas0" width="600" height="600" style="border:1px solid #000000;"></canvas>
+<canvas id="canvas0" width="600" height="600" style="border:1px solid #000000;"></canvas>
 	
 	
 	<!-- store other canvas

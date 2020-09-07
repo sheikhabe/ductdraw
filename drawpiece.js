@@ -1,6 +1,9 @@
 //New comment 2.07pm
 function drawPiece() {
 
+//clear the canvas
+cl();
+
 //set the (x ,y) location of dimension text drawn on the canvas[i] box
 var rightDimx = 490;
 var rightDimy = 300;
@@ -24,11 +27,15 @@ var length = document.getElementById("length").value;
 var set = document.getElementById("set").value;
 var setudtb = document.getElementById("setudtb").value;
 var setDir = document.getElementById("setDir").value;
-if ((setudtb=="FOB")) {
-	var txtSet = setudtb;
-} else {
-	txtSet = "Fuck"
-}
+
+var txtSet = set;
+var txtsetDir = setDir;
+var txtsetudtb = setudtb;
+
+//Lagging Details
+var lag = document.getElementById("lag").value;
+
+var txtlag = lag;
 
 //set array for offset
 var offset = [0,0,0,0,0];
@@ -192,6 +199,7 @@ document.getElementById("canvas" + i).getContext) {
 				
 //set variable ctx to .getContext of the canvas[i]of the page
 		ctx = document.getElementById("canvas" + i).getContext('2d');
+
 //use .getContext variable to write text to canvas[i]
 		
 		var txte1 = end1Width.concat('x', end1Height);
@@ -199,11 +207,24 @@ document.getElementById("canvas" + i).getContext) {
 		
 		ctx.font = "30px Arial";
 		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle'
 		ctx.textWidth = 50;
-		ctx.fillText(txte1, leftDimx, leftDimy);
+		//Try Word Wrap Dimensions
+		//ctx.fillText(txte1, leftDimx, leftDimy);
+		wrapitup(ctx, txte1, 12, "red");
 		ctx.fillText(txte2, rightDimx, rightDimy);
 		ctx.fillText(pieceType, 300,30);
-		ctx.fillText(txtSet, 300, 300);
+		if ((txtsetudtb == "FOB" || txtsetudtb == "FOT")) {
+			ctx.fillText(txtsetudtb, 300, 300);
+			ctx.strokeRect(250, 280, 100, 40);
+		} else {
+			
+		ctx.fillText(txtsetDir, 300, 270);
+		ctx.fillText(txtSet, 300, 330);
+		ctx.fillText(txtsetudtb, 300, 300);
+	}
+//var txtsetDir = setDir;
+//var txtsetudtb = setudtb;
 		
 //roadmap-different pieces: insert if..else to choose correct drawing instructions based on item in array pieceData[..,[pieceType],..]
 // save the canvas translate state to (0, 0)
@@ -252,3 +273,81 @@ cgc = document.getElementById("canvas" + boxIndex).getContext('2d');
 	//show button after clear to open form to enter data
 	
 }
+
+function wrapitup(ctx, text, fontSize, fontColor) {
+    var max_width  = 55;
+    var fontSize   =  30;
+    var lines      =  new Array();
+    var width = 0, i, j;
+    var result;
+    var color = fontColor || "white";
+
+    // Font and size is required for ctx.measureText()
+    ctx.font   = fontSize + "px Arial";
+
+    
+    // Start calculation
+    while ( text.length ) {
+    	for( i=text.length; ctx.measureText(text.substr(0,i)).width > max_width; i-- );
+    
+    	result = text.substr(0,i);
+    
+    	if ( i !== text.length )
+    		for( j=0; result.indexOf(" ",j) !== -1; j=result.indexOf(" ",j)+1 );
+    	
+    	lines.push( result.substr(0, j|| result.length) );
+    	width = Math.max( width, ctx.measureText(lines[ lines.length-1 ]).width );
+    	text  = text.substr( lines[ lines.length-1 ].length, text.length );
+    }
+    
+    
+    // Calculate canvas size, add margin
+    ctx.canvas.width  = 14 + width;
+    ctx.canvas.height =  8 + ( fontSize + 5 ) * lines.length;
+    ctx.font   = fontSize + "px Arial";
+
+    // Render
+    ctx.fillStyle = color;
+    for ( i=0, j=lines.length; i<j; ++i ) {
+		ctx.fillText( lines[i], 8, 5 + fontSize + (fontSize+5) * i );
+		
+	}
+	/* call using this
+	wrapitup(ctx, txte1, 12, "red");*/
+}
+
+
+/*
+function wrapText(context, text, x, y, maxWidth, lineHeight) {
+	var words = text.split(' ');
+	var line = '';
+
+	for(var n = 0; n < words.length; n++) {
+	  var testLine = line + words[n] + ' ';
+	  var metrics = context.measureText(testLine);
+	  var testWidth = metrics.width;
+	  if (testWidth > maxWidth && n > 0) {
+		context.fillText(line, x, y);
+		line = words[n] + ' ';
+		y += lineHeight;
+	  }
+	  else {
+		line = testLine;
+	  }
+	}
+	context.fillText(line, x, y);
+  }
+  
+  var canvas = document.getElementById('myCanvas');
+  var context = canvas.getContext('2d');
+  var maxWidth = 400;
+  var lineHeight = 25;
+  var x = (canvas.width - maxWidth) / 2;
+  var y = 60;
+  var text = 'All the world \'s a stage, and all the men and women merely players. They have their exits and their entrances; And one man in his time plays many parts.';
+
+  context.font = '16pt Calibri';
+  context.fillStyle = '#333';
+
+  wrapText(context, text, x, y, maxWidth, lineHeight);
+} */

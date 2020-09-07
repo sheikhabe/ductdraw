@@ -1,11 +1,8 @@
-table {
-	
-	
+/*table {
+
 }
 
-input[type=number]
-
-{
+input[type=number] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -15,34 +12,23 @@ input[type=number]
   box-sizing: border-box;
 }
 
-select
+select {
 
-{
-	width: 50%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
 }
 
 label {
 	vertical-align: top;
 }
-form
 
-{
+form {
 	width: 500px;
   border-radius: 5px;
 	border: 3px solid #ccc;
   background-color: #f2f2f2;
   padding: 20px;
 }
-
-.button
-
-{
+*/
+.button {
   background-color: #00AEFF;
   border: none;
   color: white;
@@ -52,14 +38,10 @@ form
   cursor: pointer;
 }
 
-.green
-
-{
+.green {
   background-color: #009100;
 }
 
-.red
-
-{
+.red {
   background-color: #E60000;
 }
