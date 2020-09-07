@@ -4,9 +4,8 @@
  <head>
   <meta charset="utf-8"/>
   <script src="drawpiece.js" type="application/javascript">
- 
   </script>
-
+<link href="style.css" rel="stylesheet">
  </head>
  <body>
 		<!--
@@ -42,11 +41,11 @@
 <tr>
 	<td>
 		<label for="end2Width">End 2 Width:</label><br>
-		<input type="number" id="end2Width" name="end2Width" value="500"><br>
+		<input type="number" id="end2Width" name="end2Width" value="300"><br>
 	</td>
 	<td>
 		<label for="end2Height">End 2 Height:</label><br>
-		<input type="number" id="end2Height" name="end2Height" value="200"><br>
+		<input type="number" id="end2Height" name="end2Height" value="500"><br>
 	</td>
 </tr>
 <tr>
@@ -65,7 +64,7 @@
 <tr>
 	<td>
 		<label for="offset">Offset</label><br>
-		<input type= "number" id="offset" name="offset" value="0"><br>
+		<input type= "number" id="offset" name="offset"><br>
 	</td>
 	<td>
 		<label for="offsetPos">Offset Position:</label><br>
@@ -93,10 +92,12 @@
 	<td>
 		<label for="setudtb">UpDownTopBottom:</label><br>
 		<select id="setudtb" name="setudtb">
-		<option value="setut">Up Top</option>
-		<option value="setub">Up Bottom</option>
-		<option value="setdt">Down Top</option>
-		<option value="setdb">Down Bottom</option>
+		<option value="FOT">Flat on Top</option>
+		<option value="FOB">Flat on Bottom</option>
+		<option value="Up Top">Up Top</option>
+		<option value="Up Bottom">Up Bottom</option>
+		<option value="Down Top">Down Top</option>
+		<option value="Down Bottom">Down Bottom</option>
 		</select><br>
 	</td>
 	<td>
@@ -107,12 +108,16 @@
 		</select><br>
 	</td>
 </tr>
+<tr>
+	<td>
+		<button type="button" class="button red" onclick="cl()">Clear</button>
+	</td>
+	<td>
+		<button type="button" class="button green" onclick="drawPiece()">Draw</button><br>
+	</td>
+</tr>
 </table>
 </form>
-
-<button type="button" onclick="cl()">Clear - button</button>
-  
-<button type="button" onclick="drawPiece()">DrawPiece</button><br>
 
   <canvas id="canvas0" width="600" height="600" style="border:1px solid #000000;"></canvas>
 	

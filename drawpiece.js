@@ -2,13 +2,13 @@
 function drawPiece() {
 
 //set the (x ,y) location of dimension text drawn on the canvas[i] box
-var rightDimx = 370;
+var rightDimx = 490;
 var rightDimy = 300;
-var leftDimx = 130;
+var leftDimx = 110;
 var leftDimy = 300;
 
 //Initialise Variable for pieceType
-var pieceType = ""; 
+var pieceType = "";
 
 //initialise variable to use to set .getContext to the desired box
 var ctx = "";
@@ -20,9 +20,20 @@ var end2Width = document.getElementById("end2Width").value;
 var end2Height = document.getElementById("end2Height").value;
 var length = document.getElementById("length").value;
 
+//setUp SetDown details
+var set = document.getElementById("set").value;
+var setudtb = document.getElementById("setudtb").value;
+var setDir = document.getElementById("setDir").value;
+if ((setudtb=="FOB")) {
+	var txtSet = setudtb;
+} else {
+	txtSet = "Fuck"
+}
+
+//set array for offset
 var offset = [0,0,0,0,0];
-var setUpDown = "";
-var setUpDownDir = "";
+
+
 
 //piece information should be an array of arrays as follows pieces[pieceData[0..[i]]] with piece being pieceData[[draw[true/false], [pieceType(to add additional piece types all need is a different drawing pattern)]]]
 //array with 6 items, each item holding an (x) or (y) coordinate for a specific piece
@@ -36,7 +47,7 @@ console.log(offset);
 
 if (offsetPos=="0") {
 	//  block of code to be executed if condition1 is true */
-	var pieceType = "Offset";
+	var pieceType = "Offset Top Left";
 	var p1x = parseInt("0");
 	var p1y = parseInt(offset[0]);
 	var p2x = parseInt(p1x);
@@ -59,7 +70,7 @@ if (offsetPos=="0") {
 
 } else if (offsetPos=="1") {
 	//  block of code to be executed if the condition1 is false and condition2 is true
-	var pieceType = "Offset";
+	var pieceType = "Offset Bottom Left";
 	var p1x = parseInt("0");
 	var p1y = parseInt(offset[0]);
 	var p2x = parseInt(p1x);
@@ -82,7 +93,7 @@ if (offsetPos=="0") {
 
 } else if (offsetPos=="2") {
 	//  block of code to be executed if the condition1 is false and condition2 is true
-	var pieceType = "Offset";
+	var pieceType = "Offset Bottom Right";
 	var p1x = parseInt("0");
 	var p1y = parseInt(offset[0]);
 	var p2x = parseInt(p1x);
@@ -105,7 +116,7 @@ if (offsetPos=="0") {
 
 } else if (offsetPos=="3") {
 	//  block of code to be executed if the condition1 is false and condition2 is true
-	var pieceType = "Offset";
+	var pieceType = "Offset Top Right";
 	var p1x = parseInt("0");
 	var p1y = parseInt(offset[0]);
 	var p2x = parseInt(p1x);
@@ -179,7 +190,7 @@ for (var i = 0; i < 1; i++) {
 document.getElementById("canvas" + i).getContext) {
 //roadmap put here a loop to check if the box array has a "ready to draw " tick on the form (update a variable to boolian True False and either skip it or draw it then move on. change to if...then...else
 				
-//set variable .getContext to the canvas[i]of the page
+//set variable ctx to .getContext of the canvas[i]of the page
 		ctx = document.getElementById("canvas" + i).getContext('2d');
 //use .getContext variable to write text to canvas[i]
 		
@@ -191,6 +202,8 @@ document.getElementById("canvas" + i).getContext) {
 		ctx.textWidth = 50;
 		ctx.fillText(txte1, leftDimx, leftDimy);
 		ctx.fillText(txte2, rightDimx, rightDimy);
+		ctx.fillText(pieceType, 300,30);
+		ctx.fillText(txtSet, 300, 300);
 		
 //roadmap-different pieces: insert if..else to choose correct drawing instructions based on item in array pieceData[..,[pieceType],..]
 // save the canvas translate state to (0, 0)
