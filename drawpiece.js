@@ -1,4 +1,4 @@
-
+//New comment 2.07pm
 function drawPiece() {
 
 //set the (x ,y) location of dimension text drawn on the canvas[i] box
