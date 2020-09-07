@@ -11,17 +11,19 @@ var leftDimy = 300;
 var ctx = "";
 
 //take drawing dimensions input from form fields
-var end1Width = "500";
-var end1Height = "300";
-var end2Width = "600";
-var end2Height = "400";
-var length = "500";
+var end1Width = document.getElementById("end1Width").value;
+var end1Height = document.getElementById("end1Height").value;
+var end2Width = document.getElementById("end2Width").value;
+var end2Height = document.getElementById("end2Height").value;
+var length = document.getElementById("length").value;
+
 var offsetChoice = "";
+
 var offset1 = "0";
-var offset = ["0","0","0","0"];
 var offset2 = "0";
 var offset3 = "0";
 var offset4 = "0";
+var offset = [0,0,0,0];
 var setUpDown = "";
 var setUpDownDir = "";
 
@@ -43,15 +45,35 @@ console.log(p4ya);
 */
 
 //initialise variables to be used for points to be used in the drawing operations
-var p1x = "0";
-var p1y = "0";
-var p2x = "400";
-var p2y = "0";
-var p3x = "400";
-var p3y = "500";
-var p4x = "0";
-var p4y = "500";
+var offsetPos = document.getElementById("offsetPos").value;
+console.log(offsetPos)
+offset[offsetPos] = document.getElementById("offset").value;
+/*
+for (var z = 0; z < 4; z++) {
+
+console.log(offset[z]);
+}
+*/
+var p1x = parseInt("0");
+var p1y = parseInt(offset[0]);
+var p2x = parseInt(p1x);
+var p2y = p1y + parseInt(end1Width);
+var p3x = parseInt(length);
+var p3y = p2y + parseInt(offset[1]) - parseInt(offset[2]);
+var p4x = p3x;
+var p4y = p3y - parseInt(end2Width);
+var p5x = p1x;
+var p5y = p1y;
 var adj = "";
+
+
+console.log(offset);
+console.log("p1", p1x, p1y);
+console.log("p2", p2x, p2y);
+console.log("p3", p3x, p3y);
+console.log("p4", p4x, p4y);
+console.log("p5", p5x, p5y);
+
 
 // Calculate the datapoints from Dimensions
 /*
@@ -131,7 +153,7 @@ document.getElementById("canvas" + i).getContext)
 	ctx.save();
 	
 // translate start point to required offset position
-  	ctx.translate(50, 50);
+  	ctx.translate(25, 25);
 		
 // use .getCanvas variable to draw piece
     ctx.beginPath();
@@ -139,7 +161,6 @@ document.getElementById("canvas" + i).getContext)
     ctx.lineTo(p2x, p2y);
     ctx.lineTo(p3x, p3y);
     ctx.lineTo(p4x, p4y);
-    ctx.lineTo(0, 0);
     ctx.closePath();
     ctx.stroke();
     

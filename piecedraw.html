@@ -9,13 +9,6 @@
 
  </head>
  <body>
- 
- <p align="center">
-
- 
-  <button type="button" onclick="cl()">Clear - button</button>
-  
-	 	<button type="button" onclick="drawPiece()">DrawPiece</button></p>
 		<!--
 		<table>
   <tr>
@@ -34,39 +27,93 @@
 	 
 	 <!-- form to input piece data -->
 
-	 <form>
-		 
-	 <table>
-	<tr>
-		<td>
-			<label for="end1Width">End 1 Width</label><br>
-				<input type="text" id="end1Width" name="end1Width"><br></td>
-		<td>
-			<label for="end1Height">End 1 Height</label><br>
-				<input type="text" id="end1Height" name="end1Height"><br></td>
-	</tr>
-
-	<tr>
-		<td>
-			<label for="end2Width">End 2 Width</label><br>
-			<input type="text" id="end2Width" name="end2Width"><br></td>
-		<td>
-			<label for="end2Height">End 1 Height</label><br>
-				<input type="text" id="end2Height" name="end2Height"><br></td>
-	</tr>
-
-	<tr>
-		<td>
-			<label for="offsetChoice">offsetChoice</label><br>
-				<input type= "text" id="offsetChoice" name="offsetChoice"><br></td>
-		<td>
-			<label for="offset">offset:</label><br>
-				<input type="text" id="offset" name="offset"><br></td>
+<form>
+<table>
+<tr>
+	<td>
+		<label for="end1Width">End 1 Width:</label><br>
+		<input type="number" id="end1Width" name="end1Width" value="500"><br>
+	</td>
+	<td>
+		<label for="end1Height">End 1 Height:</label><br>
+		<input type="number" id="end1Height" name="end1Height" value="300"><br>
+	</td>
 </tr>
-		 </table>
+<tr>
+	<td>
+		<label for="end2Width">End 2 Width:</label><br>
+		<input type="number" id="end2Width" name="end2Width" value="500"><br>
+	</td>
+	<td>
+		<label for="end2Height">End 2 Height:</label><br>
+		<input type="number" id="end2Height" name="end2Height" value="200"><br>
+	</td>
+</tr>
+<tr>
+	<td>
+		<label for="length">Length:</label><br>
+		<input type= "number" id="length" name="length" value="500"><br>
+	</td>
+	<td>
+		<label for="jointType">Joint Type:</label><br>
+		<select id="jointType" name="jointType">
+		<option value="t">TDF</option>
+		<option value="t25">TDF-25mm</option>
+		<option value="s">Slide</option>
+	</td>
+</tr>
+<tr>
+	<td>
+		<label for="offset">Offset</label><br>
+		<input type= "number" id="offset" name="offset" value="0"><br>
+	</td>
+	<td>
+		<label for="offsetPos">Offset Position:</label><br>
+		<select id="offsetPos" name="offsetPos">
+		<option value="0">Top Left</option>
+		<option value="1">Bottom Left</option>
+		<option value="3">Top Right</option>
+		<option value="2">Bottom Right</option>
+		</select><br>
+	</td>
+</tr>
+<tr>
+	<td>
+		Set Up/Down:
+	</td>
+</tr>
+<tr>
+	<td>
+		<label for="set">Set:</label><br>
+		<input type= "text" id="set" name="set"><br>
+	</td>
+</tr>
+<tr>
+	<td>
+		<label for="setudtb">UpDownTopBottom:</label><br>
+		<select id="setudtb" name="setudtb">
+		<option value="setut">Up Top</option>
+		<option value="setub">Up Bottom</option>
+		<option value="setdt">Down Top</option>
+		<option value="setdb">Down Bottom</option>
+		</select><br>
+	</td>
+	<td>
+		<label for="setDir">Direction:</label><br>
+		<select id="setDir" name="setDir">
+		<option value="left">———-></option>
+		<option value="right"><——--</option>
+		</select><br>
+	</td>
+</tr>
+</table>
 </form>
 
-  <canvas id="canvas0" width="475" height="600" style="border:1px solid #000000;"></canvas>
+<button type="button" onclick="cl()">Clear - button</button>
+  
+<button type="button" onclick="drawPiece()">DrawPiece</button><br>
+
+  <canvas id="canvas0" width="600" height="600" style="border:1px solid #000000;"></canvas>
 	
 	
 	<!-- store other canvas
