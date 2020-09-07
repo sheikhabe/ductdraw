@@ -17,32 +17,12 @@ var end2Width = document.getElementById("end2Width").value;
 var end2Height = document.getElementById("end2Height").value;
 var length = document.getElementById("length").value;
 
-var offsetChoice = "";
-
-var offset1 = "0";
-var offset2 = "0";
-var offset3 = "0";
-var offset4 = "0";
-var offset = [0,0,0,0];
+var offset = [0,0,0,0,0];
 var setUpDown = "";
 var setUpDownDir = "";
 
 //piece information should be an array of arrays as follows pieces[pieceData[0..[i]]] with piece being pieceData[[draw[true/false], [pieceType(to add additional piece types all need is a different drawing pattern)]]]
 //array with 6 items, each item holding an (x) or (y) coordinate for a specific piece
-/* Take variables as (x, y) co ordinates. SUPERCEEDED
-var p2xa = document.getElementById("p2xa").value;
-console.log(p2xa);
-var p2ya = document.getElementById("p2ya").value;
-console.log(p2ya);
-var p3xa = document.getElementById("p3xa").value;
-console.log(p3xa);
-var p3ya = document.getElementById("p3ya").value;
-console.log(p3ya);
-var p4xa = document.getElementById("p4xa").value;
-console.log(p4xa);
-var p4ya = document.getElementById("p4ya").value;
-console.log(p4ya);
-*/
 
 //initialise variables to be used for points to be used in the drawing operations
 var offsetPos = document.getElementById("offsetPos").value;
@@ -59,43 +39,21 @@ var p1y = parseInt(offset[0]);
 var p2x = parseInt(p1x);
 var p2y = p1y + parseInt(end1Width);
 var p3x = parseInt(length);
-var p3y = p2y + parseInt(offset[1]) - parseInt(offset[2]);
+var p3y = p2y + parseInt(offset[1]) - parseInt(offset[2]) + (parseInt(end2Width) + parseInt(offset[3]) - parseInt(p2y));
 var p4x = p3x;
 var p4y = p3y - parseInt(end2Width);
 var p5x = p1x;
 var p5y = p1y;
 var adj = "";
+var adjCanLocY = Math.min(p1y, p4y);
 
-
-console.log(offset);
+console.log(offsetPos);
+console.log(adjCanLocY);
 console.log("p1", p1x, p1y);
 console.log("p2", p2x, p2y);
 console.log("p3", p3x, p3y);
 console.log("p4", p4x, p4y);
 console.log("p5", p5x, p5y);
-
-
-// Calculate the datapoints from Dimensions
-/*
-p1x = 0;
-p1y = 0;
-
-p2x = p1x + end1Width;
-p2y = p1y;
-
-
-
-p3x = p2x;
-p3y = p2y;
-
-p4x = p3x;
-p4y = p3y;
-
-p5x = p1x;
-p5y = p1y;
-
-*/
-
 
 //change this from looping through 6 boxes, to the max number of boxes where the “ready to draw” tickbox is ticked
 
@@ -153,7 +111,7 @@ document.getElementById("canvas" + i).getContext)
 	ctx.save();
 	
 // translate start point to required offset position
-  	ctx.translate(25, 25);
+  	ctx.translate(50, 50-adjCanLocY);
 		
 // use .getCanvas variable to draw piece
     ctx.beginPath();
